@@ -1,2 +1,2 @@
 # Ai-Automation-Internship
-Shadik 
+Shadik | This Is Virtual Intern ship | HR is claude LLM | means am curious about internship means what is what what to do how the structure looks like ?some doubts are there so however am first year i think i wont get real one for now means lot of people sending mails but they are like spam means asking money for training and then they will give free internship so i dont want to do those stuff so i thought to do a virtual internship with same structure like claude is my hr thats it ! 
