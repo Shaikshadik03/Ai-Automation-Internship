@@ -1,2 +1,18 @@
-# Ai-Automation-Internship
-Shadik | This Is Virtual Intern ship | HR is claude LLM | means am curious about internship means what is what what to do how the structure looks like ?some doubts are there so however am first year i think i wont get real one for now means lot of people sending mails but they are like spam means asking money for training and then they will give free internship so i dont want to do those stuff so i thought to do a virtual internship with same structure like claude is my hr thats it ! 
+# AI Automation Internship (Virtual)
+
+**Intern:** Shadik Shaik
+**Role:** AI Automation Intern (self-directed, simulated)
+**Mentor:** Claude
+**Duration:** 28 Sep 2026 to 25 Oct 2026
+
+## Why I'm doing this
+I'm a first-year CSE student. I want to learn how a real internship works: structure, tasks, deadlines, reports. So I'm running a virtual internship with the same structure.
+
+## 4-Week Plan
+- Week 1: Onboarding + fundamentals + starter workflow
+- Week 2: Project kickoff + design
+- Week 3: Build + AI layer
+- Week 4: Polish + final review
+
+## Daily Log
+- **Day 1 (28 Sep):** Got the onboarding pack, created this repo.
