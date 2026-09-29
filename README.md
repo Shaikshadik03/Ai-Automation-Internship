@@ -102,10 +102,18 @@ Ai-Automation-Internship/
 | Day | Date | What I did |
 |:---:|---|---|
 | 1 | 28 Sep | Got the onboarding pack, created the repo, wrote this README |
-| 2 | | |
-| 3 | | |
 
----
+
+## Progress
+| Task | Status |
+|------|--------|
+| Task 1: Repo + README | ✅ Done |
+| Task 2: What is automation (notes) | ✅ Done |
+| Task 3: Enquiry Logger workflow | ✅ Done: [notes](notes/enquiry-logger-notes.md), [workflow](workflows/enquiry-logger.json) |
+
+## Screenshots
+![Workflow](screenshots/workflow-green.png)
+![Sheet](screenshots/google-sheet-rows.png)
 
 ## 📬 Connect with me
 
