@@ -1,0 +1,216 @@
+{
+  "name": "Enquiry Logger",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "147d7e6a-f31d-414e-8c04-1caf1bd08f4a",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "6ab3e854-8ce4-46bc-9826-7bf0b8ed2530",
+      "name": "Webhook",
+      "webhookId": "147d7e6a-f31d-414e-8c04-1caf1bd08f4a"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7007b151-a3a1-4bf0-a1c0-77f597617dc6",
+              "name": "name",
+              "value": "={{ $json.body.name }}",
+              "type": "string"
+            },
+            {
+              "id": "2404fd4c-6ed9-41ec-8bb0-7e7f7b0325a7",
+              "name": "phone",
+              "value": "={{ $json.body.phone }}",
+              "type": "string"
+            },
+            {
+              "id": "4b55d4e1-e89a-4415-a464-4fb18cac2096",
+              "name": "message",
+              "value": "={{ $json.body.message.trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "83cd14d6-a79b-4159-94e5-4d8f3830498e",
+              "name": "timestamp",
+              "value": "={{ $now }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        224,
+        0
+      ],
+      "id": "9c6efb92-6001-45c0-a4d3-7ef78a63e1bd",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1xILjYQN5l0J_kqz0Vl_G51OP7nFk9YGeyNkGM7LTJZg",
+          "mode": "list",
+          "cachedResultName": "Enquiry Logger",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1xILjYQN5l0J_kqz0Vl_G51OP7nFk9YGeyNkGM7LTJZg/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1xILjYQN5l0J_kqz0Vl_G51OP7nFk9YGeyNkGM7LTJZg/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "phone",
+              "displayName": "phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "message",
+              "displayName": "message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        448,
+        0
+      ],
+      "id": "5fa11372-944f-4956-a285-2b5ea05bb796",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "aVKMsuHO8fFlddUa",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "8766077635",
+        "text": "=New enquiry from {{ $json.name }}: {{ $json.message }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        672,
+        0
+      ],
+      "id": "74ac71c3-3d30-40a7-8f12-e6b5bd7e0e50",
+      "name": "Send a text message",
+      "webhookId": "d037d59c-e07b-494a-ad4d-e93ce0c517e1",
+      "credentials": {
+        "telegramApi": {
+          "id": "aV3qPdXSGUPHFlx5",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "4164d0b3-c19e-44fb-bd8f-2b671952901f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "f7765eac348b97e582b57bfcc95e391bb4cab404ddd025e964358f0678db8d3e"
+  },
+  "nodeGroups": [],
+  "id": "K40LeG3p3Kcl9kFl",
+  "tags": []
+}
